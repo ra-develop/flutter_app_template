@@ -1,5 +1,7 @@
-name: open_weather_app
-description: A new Flutter project.
+# TODO should be change to you project name
+name: app_template
+# TODO change to your app description
+description: A Flutter project template.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev

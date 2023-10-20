@@ -1,10 +1,10 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:open_weather_app/services/core/config.dart';
-import 'package:open_weather_app/services/network/cms_helpers.dart';
 
 import 'app.dart';
+import 'services/core/config.dart';
+import 'services/network/cms_helpers.dart';
 
 Future<void> main() async {
   // For resolve fails CERTIFICATE_VERIFY_FAILED for HTTPS site with no certificate

@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:open_weather_app/services/core/app_routes.dart';
-import 'package:open_weather_app/services/core/material_color_generator.dart';
+
+import 'services/core/app_routes.dart';
+import 'services/core/material_color_generator.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 

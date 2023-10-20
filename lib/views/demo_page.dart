@@ -1,9 +1,9 @@
 import 'dart:developer' as developer;
 
 import 'package:flutter/material.dart';
-import 'package:open_weather_app/widgets/waiting_view.dart';
 
 import '../services/core/app_routes.dart';
+import '../widgets/waiting_view.dart';
 
 class DemoPage extends StatefulWidget {
   const DemoPage({super.key, required this.title});

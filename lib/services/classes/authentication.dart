@@ -2,7 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:open_weather_app/services/core/config.dart';
+
+import '../core/config.dart';
 
 final authenticationServiceProvider =
     ChangeNotifierProvider<AuthenticationService>((ref) {
