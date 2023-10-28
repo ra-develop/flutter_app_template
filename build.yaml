@@ -1,0 +1,19 @@
+targets:
+  $default:
+    builders:
+      dart_json_mapper:
+        generate_for:
+          # here should be listed entry point files having 'void main()' function
+          - lib/main.dart
+          - test/core/data/local/shared_prefs_storage_service_test.dart
+          - test/core/domain/models/user/user_model_test.dart
+          - test/features/authentication/data/datasource/auth_remote_data_source_test.dart
+          - test/features/authentication/data/repositories/atuhentication_repository_impl_test.dart
+          - test/features/authentication/presentation/providers/auth_providers_test.dart
+          - test/services/user_cache_service/data/datasource/user_local_datasource_test.dart
+
+      # This part is needed to tell original reflectable builder to stay away
+      # it overrides default options for reflectable builder to an **empty** set of files
+      reflectable:
+        generate_for:
+          - no/files

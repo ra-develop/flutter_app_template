@@ -1,6 +1,0 @@
-package com.example.open_weather_app.open_weather_app
-
-import io.flutter.embedding.android.FlutterActivity
-
-class MainActivity : FlutterActivity() {
-}

@@ -36,6 +36,16 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
+  cloud_firestore: ^4.10.0
+  firebase_auth: ^4.11.0
+  firebase_core: ^2.18.0
+  firebase_crashlytics: ^3.0.0
+  firebase_dynamic_links: ^5.0.0
+  firebase_storage: ^11.3.0
+
+  #  Hive is a lightweight and buzzing-fast key-value database made for Flutter and Dart.
+  hive_flutter: ^1.1.0
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
@@ -44,7 +54,21 @@ dependencies:
   #  - catches programming errors at compile time rather than at runtime
   #  - removes nesting for listening/combining objects
   #  - ensures that the code is testab
-  flutter_riverpod: ^2.4.3
+  #  flutter_riverpod: ^2.4.3
+
+  #  Flutter Hooks
+  #  A Flutter implementation of React hooks: https://medium.com/@dan_abramov/making-sense-of-react-hooks-fdbde8803889
+  #  Hooks are a new kind of object that manage the life-cycle of a Widget.
+  #  They exist for one reason: increase the code-sharing between widgets by removing duplicates.
+  #  flutter_hooks: ^0.20.2
+
+  #  A reactive caching and data-binding framework. https://riverpod.dev
+  #  Riverpod makes working with asynchronous code a breeze by:
+  #  handling errors/loading states by default. No need to manually catch errors
+  #  natively supporting advanced scenearios, such as pull-to-refresh
+  #  separating the logic from your UI
+  #  ensuring your code is testable, scalable and reusable
+  hooks_riverpod: ^2.0.2
 
   # This Flutter plugin provides an API for querying information about an application package.
   # https://pub.dev/packages/package_info_plus
@@ -57,17 +81,27 @@ dependencies:
   # https://pub.dev/packages/shared_preferences
   shared_preferences: ^2.0.6
 
-  #  Flutter Hooks
-  #  A Flutter implementation of React hooks: https://medium.com/@dan_abramov/making-sense-of-react-hooks-fdbde8803889
-  #  Hooks are a new kind of object that manage the life-cycle of a Widget.
-  #  They exist for one reason: increase the code-sharing between widgets by removing duplicates.
-  flutter_hooks: ^0.20.2
 
   #  A powerful HTTP networking package for Dart/Flutter, supports Global configuration,
   #  Interceptors, FormData, Request cancellation, File uploading/downloading, Timeout,
   #  Custom adapters, Transformers, etc.
   dio: ^5.3.3
 
+  # This package allows programmers to annotate Dart objects in order to Serialize / Deserialize
+  # them to / from JSON.
+  # https://pub.dev/packages/dart_json_mapper
+  dart_json_mapper: ^2.2.9
+
+  #  Being able to compare objects in Dart often involves having to override the == operator as well as hashCode.
+  equatable: ^2.0.5
+  dartz: ^0.10.1
+  freezed_annotation: ^2.4.1
+
+
+  # A Flutter geolocation plugin which provides easy access to platform specific location services
+  # (FusedLocationProviderClient or if not available the LocationManager on
+  #  Android and CLLocationManager on iOS).
+  geolocator: ^10.1.0
 
 dev_dependencies:
   flutter_test:
@@ -79,6 +113,13 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+
+  build_runner: ^2.4.6
+
+  mocktail: ^1.0.1
+
+  state_notifier_test: ^0.0.10
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
