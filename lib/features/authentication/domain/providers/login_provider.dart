@@ -13,7 +13,7 @@ final authdataSourceProvider =
 
 final authRepositoryProvider = Provider<AuthenticationRepository>(
   (ref) {
-    final NetworkService networkService = ref.watch(netwokServiceProvider);
+    final NetworkService networkService = ref.watch(networkServiceProvider);
     final LoginUserDataSource dataSource =
         ref.watch(authdataSourceProvider(networkService));
     return AuthenticationRepositoryImpl(dataSource);

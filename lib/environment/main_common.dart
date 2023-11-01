@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../core/data/datasources/data_base/app_storage.dart';
 import '../core/services/observers.dart';
 import '../core/services/storage/remote/certificate_verify_resolve.dart';
 import '../main.mapper.g.dart';
@@ -45,16 +44,16 @@ Future<void> mainCommon({required Flavor flavorConfiguration}) async {
   // );
 
   // Initiating the Local Data Base
-  final appStorage = AppStorage();
-  await appStorage.initAppStorage();
+  // final appStorage = AppStorage();
+  // await appStorage.initAppStorage();
 
   // Start App
   runApp(ProviderScope(
     observers: [
       Observers(),
     ],
-    overrides: [
-      appStorageProvider.overrideWithValue(appStorage),
+    overrides: const [
+      // appStorageProvider.overrideWithValue(appStorage),
     ],
     child: const App(),
   ));

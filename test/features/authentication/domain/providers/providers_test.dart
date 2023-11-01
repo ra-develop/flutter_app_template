@@ -12,7 +12,7 @@ void main() {
   late dynamic authRepository;
   setUpAll(
     () {
-      networkService = providerContainer.read(netwokServiceProvider);
+      networkService = providerContainer.read(networkServiceProvider);
       dataSource =
           providerContainer.read(authdataSourceProvider(networkService));
       authRepository = providerContainer.read(authRepositoryProvider);

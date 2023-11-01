@@ -44,7 +44,7 @@ dependencies:
   firebase_storage: ^11.3.0
 
   #  Hive is a lightweight and buzzing-fast key-value database made for Flutter and Dart.
-  hive_flutter: ^1.1.0
+#  hive_flutter: ^1.1.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -81,7 +81,6 @@ dependencies:
   # https://pub.dev/packages/shared_preferences
   shared_preferences: ^2.0.6
 
-
   #  A powerful HTTP networking package for Dart/Flutter, supports Global configuration,
   #  Interceptors, FormData, Request cancellation, File uploading/downloading, Timeout,
   #  Custom adapters, Transformers, etc.
@@ -96,7 +95,6 @@ dependencies:
   equatable: ^2.0.5
   dartz: ^0.10.1
   freezed_annotation: ^2.4.1
-
 
   # A Flutter geolocation plugin which provides easy access to platform specific location services
   # (FusedLocationProviderClient or if not available the LocationManager on

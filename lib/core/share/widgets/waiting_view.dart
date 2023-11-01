@@ -9,7 +9,7 @@ class WaitingViewArgs {
   final Widget? infoIcon;
   final bool linearMode;
   final Color? color;
-  final Widget? actions;
+  final List<Widget>? actions;
 
   WaitingViewArgs({
     this.message,
@@ -37,7 +37,7 @@ class WaitingView extends HookWidget {
   final Widget? infoIcon;
   final bool linearMode;
   final Color? color;
-  final Widget? actions;
+  final List<Widget>? actions;
 
   @override
   Widget build(BuildContext context) {
@@ -62,95 +62,135 @@ class WaitingView extends HookWidget {
     }
     // controller.repeat(reverse: true);
     return Scaffold(
+      resizeToAvoidBottomInset: true,
+      persistentFooterAlignment: AlignmentDirectional.center,
+      persistentFooterButtons: [
+        _buildActionsButtons(counter, context),
+      ],
       body: Visibility(
         visible: !linearMode,
-        replacement: Container(
-          height: 60,
-          alignment: Alignment.topCenter,
-          child: SizedBox(
-            height: 5,
-            child: LinearProgressIndicator(
-              value: (duration != null && duration != Duration.zero)
-                  ? counter.value
-                  : null,
+        replacement: _buildLinearProgressIndicator(counter),
+        child: _buildCircularProgressIndicator(
+            textStyle, total, counter, step, context),
+      ),
+    );
+  }
+
+  Container _buildLinearProgressIndicator(ValueNotifier<double> counter) {
+    return Container(
+      height: 60,
+      alignment: Alignment.topCenter,
+      child: SizedBox(
+        height: 5,
+        child: LinearProgressIndicator(
+          color: color,
+          value: (duration != null && duration != Duration.zero)
+              ? counter.value
+              : null,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildCircularProgressIndicator(TextStyle textStyle, int total,
+      ValueNotifier<double> counter, double step, BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        // direction: Axis.vertical,
+        children: [
+          // const Gap.expand(10),
+          _buildCircularProgressView(
+            textStyle,
+            total,
+            counter,
+            step,
+          ),
+          _buildTextMessage(context),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildCircularProgressView(
+    TextStyle textStyle,
+    int total,
+    ValueNotifier<double> counter,
+    double step,
+  ) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 60.0),
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Align(
+            alignment: Alignment.center,
+            child: SizedBox(
+              width: 60,
+              height: 60,
+              child: CircularProgressIndicator(
+                color: color,
+                value: (duration != null && duration != Duration.zero)
+                    ? counter.value
+                    : null,
+                // semanticsLabel: 'Linear progress indicator',
+              ),
             ),
           ),
-        ),
-        child: Stack(
-          alignment: Alignment.topCenter,
-          children: <Widget>[
-            Align(
-              alignment: Alignment.center,
-              child: duration == null
-                  ? infoIcon != null
-                      ? SizedBox(
-                          width: 50,
-                          height: 50,
-                          child: infoIcon,
-                        )
-                      : Text(
-                          "",
-                          style: textStyle,
-                        )
-                  : Text(
-                      ((total - counter.value / step) + 1).toInt().toString(),
-                      style: textStyle),
-            ),
-            Align(
-              alignment: Alignment.center,
-              child: SizedBox(
-                width: 60,
+          Align(
+            alignment: Alignment.center,
+            child: duration == null
+                ? infoIcon != null
+                    ? SizedBox(
+                        width: 50,
+                        height: 50,
+                        child: infoIcon,
+                      )
+                    : Text(
+                        "",
+                        style: textStyle,
+                      )
+                : Text(((total - counter.value / step) + 1).toInt().toString(),
+                    style: textStyle),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildTextMessage(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 20.0, bottom: 0),
+      child: LimitedBox(
+        maxWidth: MediaQuery.of(context).size.width,
+        maxHeight: MediaQuery.of(context).size.height - 220,
+        child: SingleChildScrollView(
+            child: Text(
+          message != null ? message.toString() : '',
+          textAlign: TextAlign.center,
+          style: TextStyle(color: color),
+        )),
+      ),
+    );
+  }
+
+  Visibility _buildActionsButtons(
+      ValueNotifier<double> counter, BuildContext context) {
+    return Visibility(
+      visible: counter.value >= 1,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: actions ??
+            [
+              SizedBox(
                 height: 60,
-                child: CircularProgressIndicator(
-                  color: color,
-                  value: (duration != null && duration != Duration.zero)
-                      ? counter.value
-                      : null,
-                  // semanticsLabel: 'Linear progress indicator',
+                child: ElevatedButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text("OK"),
                 ),
               ),
-            ),
-            Align(
-              alignment: const Alignment(0.0, 0.9),
-              child: Padding(
-                padding: const EdgeInsets.only(top: 40.0, bottom: 60),
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height / 2 - 130,
-                  child: CustomScrollView(
-                    slivers: [
-                      SliverFillRemaining(
-                        hasScrollBody: false,
-                        child: Text(
-                          message != null ? message.toString() : '',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(color: color),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            Visibility(
-              visible: counter.value >= 1,
-              child: Align(
-                alignment: Alignment.bottomCenter,
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: SizedBox(
-                      height: 60,
-                      child: actions ??
-                          ElevatedButton(
-                            onPressed: () => Navigator.pop(context),
-                            child: const Text("OK"),
-                          )),
-                ),
-              ),
-            ),
-            // )
-          ],
-        ),
+            ],
       ),
     );
   }

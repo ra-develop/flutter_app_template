@@ -32,6 +32,7 @@ class DemoPage extends ConsumerStatefulWidget {
 
 class _DemoPageState extends ConsumerState<DemoPage> {
   int _counter = 0;
+  bool _showFloatingButton = true;
 
   // final GetCurrentWeatherDataArgs _getCurrentWeatherDataArgs =
   //     const GetCurrentWeatherDataArgs();
@@ -77,135 +78,104 @@ class _DemoPageState extends ConsumerState<DemoPage> {
         title: Text(widget.title),
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            currentPosition.when(
-              loading: () => const Expanded(child: WaitingView()),
-              error: (error, stack) => Expanded(
-                  child: WaitingView(
-                message: "Error: ${error.toString()}",
-                // duration: const Duration(seconds: 1),
+        // mainAxisAlignment: MainAxisAlignment.center,
+        // children: <Widget>[
+        child: currentPosition.when(
+          loading: () => const CircularProgressIndicator(),
+          //const Expanded(child: WaitingView()),
+          error: (error, stack) {
+            setState(() {
+              _showFloatingButton = false;
+            });
+            return Expanded(
+                child: WaitingView(
+              message: "Error: ${error.toString()}",
+              // duration: const Duration(seconds: 1),
+              color: Colors.red,
+              infoIcon: const WarningSign(
                 color: Colors.red,
-                infoIcon: const WarningSign(
-                  color: Colors.red,
-                ),
-              )),
-              data: (currentPosition) {
-                // setState(() {
-                // _getCurrentWeatherDataArgs.latitude =
-                //     currentPosition.latitude;
-                // _getCurrentWeatherDataArgs.longitude =
-                //     currentPosition.longitude;
-                final getCurrentWeatherDataArgs = GetCurrentWeatherDataArgs(
-                    latitude: currentPosition.latitude,
-                    longitude: currentPosition.longitude);
-                // });
-
-                AsyncValue<CurrentWeatherData> currentWeatherData = ref.watch(
-                    getCurrentWeatherDataProvider(getCurrentWeatherDataArgs));
-                return Column(
-                  children: [
-                    const Text("Your geo position is:"),
-                    Text("latitude: ${DemoConfig.lastKnownPosition?.latitude}"),
-                    Text(
-                        "longitude: ${DemoConfig.lastKnownPosition?.longitude}"),
-                    const VSpacer(20),
-                    currentWeatherData.when(
-                        data: (currentWeatherData) {
-                          return Column(
-                            children: [
-                              const Text("Current weather is:"),
-                              Text("City: ${currentWeatherData.name}"),
-                              Text("Temp: ${currentWeatherData.main?.temp}"),
-                            ],
-                          );
-                        },
-                        error: (error, stack) => Expanded(
-                              child: WaitingView(
-                                message: "Error: ${error.toString()}",
-                                // duration: const Duration(seconds: 1),
-                                color: Colors.red,
-                                infoIcon: const WarningSign(
-                                  color: Colors.red,
-                                ),
-                              ),
-                            ),
-                        loading: () => const CircularProgressIndicator()),
-                  ],
-                );
-              },
-            ),
-            const VSpacer(20),
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            const VSpacer(20),
-            ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  developer.log("Test waiting view pushed",
-                      name: "WaitingView");
-                  Navigator.pushNamed(context, AppRoutes.simpleWait,
-                      arguments: "Test waiting view");
-                });
-              },
-              child: const Text(
-                "Test waiting view",
-                style: TextStyle(fontWeight: FontWeight.bold),
               ),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  developer.log("Test waiting view pushed",
-                      name: "WaitingView");
-                  final arguments = WaitingViewArgs(
-                    message: "Test waiting view with Duration",
-                    duration: const Duration(seconds: 5),
+            ));
+          },
+          data: (currentPosition) {
+            final getCurrentWeatherDataArgs = GetCurrentWeatherDataArgs(
+                latitude: currentPosition.latitude,
+                longitude: currentPosition.longitude);
+            AsyncValue<CurrentWeatherData> currentWeatherData = ref.watch(
+                getCurrentWeatherDataProvider(getCurrentWeatherDataArgs));
+            return currentWeatherData.when(
+                data: (currentWeatherData) {
+                  return Column(
+                    children: [
+                      const Text("Your geo position is:"),
+                      Text(
+                          "latitude: ${DemoConfig.lastKnownPosition?.latitude}"),
+                      Text(
+                          "longitude: ${DemoConfig.lastKnownPosition?.longitude}"),
+                      const VSpacer(20),
+                      const Text("Current weather is:"),
+                      Text("City: ${currentWeatherData.name}"),
+                      Text("Temp: ${currentWeatherData.main?.temp}"),
+                      const VSpacer(20),
+                      const Text(
+                        'You have pushed the button this many times:',
+                      ),
+                      Text(
+                        '$_counter',
+                        style: Theme.of(context).textTheme.headlineMedium,
+                      ),
+                      const VSpacer(20),
+                      _buildWaitingViewButton(context),
+                      _buildWaitingViewWithDurationButton(context),
+                      _buildWaitingViewLongMessageErrorButton(context),
+                    ],
                   );
-                  Navigator.pushNamed(context, AppRoutes.waitingView,
-                      arguments: arguments);
-                });
-              },
-              child: const Text(
-                "Test waiting view with Duration",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  developer.log("Test waiting view pushed",
-                      name: "WaitingView");
-                  final arguments = WaitingViewArgs(
-                    message: """
+                },
+                error: (error, stack) {
+                  setState(() {
+                    _showFloatingButton = false;
+                  });
+                  return Expanded(
+                    child: WaitingView(
+                      message: "Error: ${error.toString()}",
+                      // duration: const Duration(seconds: 1),
+                      color: Colors.red,
+                      infoIcon: const WarningSign(
+                        color: Colors.red,
+                      ),
+                    ),
+                  );
+                },
+                loading: () => const CircularProgressIndicator());
+          },
+        ),
+        // ],
+      ),
+      floatingActionButton: Visibility(
+        visible: _showFloatingButton,
+        replacement: Container(),
+        child: FloatingActionButton(
+          onPressed: _incrementCounter,
+          tooltip: 'Increment',
+          child: const Icon(Icons.add),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildWaitingViewLongMessageErrorButton(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        setState(() {
+          final arguments = WaitingViewArgs(
+            message: """
 Test waiting view as warning message
-       Test waiting view as warning message
-                Test waiting view as warning message
-                                Test waiting view as warning message
+     Test waiting view as warning message
+              Test waiting view as warning message
+                              Test waiting view as warning message
 Test waiting view as warning message
+  Test waiting view as warning message
     Test waiting view as warning message
-      Test waiting view as warning message
 Test waiting view as warning message. Test waiting view as warning message. Test waiting view as warning message. Test waiting view as warning message
 Test waiting view as warning message
 Test waiting view as warning message
@@ -223,30 +193,96 @@ Test waiting view as warning message
 Test waiting view as warning message
 Test waiting view as warning message
 Test waiting view as warning message
-                 """,
-                    // duration: const Duration(seconds: 1),
-                    color: Colors.red,
-                    infoIcon: const WarningSign(
-                      color: Colors.red,
-                    ),
-                  );
-                  Navigator.pushNamed(context, AppRoutes.waitingView,
-                      arguments: arguments);
-                });
-              },
-              child: const Text(
-                "Test waiting view as warning message",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
+Test waiting view as warning message
+     Test waiting view as warning message
+              Test waiting view as warning message
+                              Test waiting view as warning message
+Test waiting view as warning message
+  Test waiting view as warning message
+    Test waiting view as warning message
+Test waiting view as warning message. Test waiting view as warning message. Test waiting view as warning message. Test waiting view as warning message
+Test waiting view as warning message
+Test waiting view as warning message
+Test waiting view as warning message
+Test waiting view as warning message
+Test waiting view as warning message
+Test waiting view as warning message
+     Test waiting view as warning message
+              Test waiting view as warning message
+                              Test waiting view as warning message
+Test waiting view as warning message
+  Test waiting view as warning message
+    Test waiting view as warning message
+Test waiting view as warning message. Test waiting view as warning message. Test waiting view as warning message. Test waiting view as warning message
+Test waiting view as warning message
+Test waiting view as warning message
+Test waiting view as warning message
+Test waiting view as warning message
+Test waiting view as warning message
+Test waiting view as warning message
+     Test waiting view as warning message
+              Test waiting view as warning message
+                              Test waiting view as warning message
+Test waiting view as warning message
+  Test waiting view as warning message
+    Test waiting view as warning message
+Test waiting view as warning message. Test waiting view as warning message. Test waiting view as warning message. Test waiting view as warning message
+Test waiting view as warning message
+Test waiting view as warning message
+Test waiting view as warning message
+Test waiting view as warning message
+Test waiting view as warning message
+               """,
+            // duration: const Duration(seconds: 0),
+            color: Colors.red,
+            infoIcon: const WarningSign(
+              color: Colors.red,
             ),
-          ],
-        ),
+          );
+          Navigator.pushNamed(context, AppRoutes.waitingView,
+              arguments: arguments);
+        });
+      },
+      child: const Text(
+        "Test waiting view as warning message",
+        style: TextStyle(fontWeight: FontWeight.bold),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+
+  Widget _buildWaitingViewWithDurationButton(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        setState(() {
+          developer.log("Test waiting view pushed", name: "WaitingView");
+          final arguments = WaitingViewArgs(
+            message: "Test waiting view with Duration",
+            duration: const Duration(seconds: 5),
+          );
+          Navigator.pushNamed(context, AppRoutes.waitingView,
+              arguments: arguments);
+        });
+      },
+      child: const Text(
+        "Test waiting view with Duration",
+        style: TextStyle(fontWeight: FontWeight.bold),
+      ),
+    );
+  }
+
+  Widget _buildWaitingViewButton(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        setState(() {
+          developer.log("Test waiting view", name: "WaitingView");
+          Navigator.pushNamed(context, AppRoutes.simpleWait,
+              arguments: "Test waiting view");
+        });
+      },
+      child: const Text(
+        "Test waiting view",
+        style: TextStyle(fontWeight: FontWeight.bold),
+      ),
     );
   }
 }
