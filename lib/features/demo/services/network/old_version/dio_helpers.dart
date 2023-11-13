@@ -2,7 +2,7 @@ import 'dart:developer' as developer;
 
 import 'package:app_template/features/demo/data/demo_config.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final dioProvider = Provider<Dio>((ref) {
   final dio = Dio(dioBaseOptions());
@@ -43,14 +43,13 @@ void dioErrorHandler(DioException e, {String? moduleName}) {
       name: "DioError.requestOptions.uri.path",
     );
     developer.log(
-      "\n" + e.requestOptions.queryParameters.toString(),
+      "\n${e.requestOptions.queryParameters}",
       name: "DioError.requestOptions.queryParameters",
     );
   } else {
     // Something happened in setting up or sending the request that triggered an Error
     // print("DioError.requestOptions:\n" + e.requestOptions.toString());
-    developer.log("\n" + e.requestOptions.toString(),
-        name: "DioError.requestOptions");
+    developer.log("\n${e.requestOptions}", name: "DioError.requestOptions");
   }
 }
 

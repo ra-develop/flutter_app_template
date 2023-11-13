@@ -1,20 +1,26 @@
 import 'package:dart_json_mapper/dart_json_mapper.dart';
 import 'package:equatable/equatable.dart';
+import 'package:objectbox/objectbox.dart';
 
 @jsonSerializable
 @Json(ignoreNullMembers: true)
+@Entity()
 class User extends Equatable {
-  final int id;
-  final String username;
-  final String? password;
-  final String firstName;
-  final String lastName;
-  final String email;
-  final String gender;
-  final String image;
-  final String token;
+  @Id()
+  @JsonProperty(ignore: true)
+  int objectboxid = 0;
+  int id = 0;
+  String username;
+  String? password;
+  String firstName;
+  String lastName;
+  String email;
+  String gender;
+  String image;
+  String token;
 
-  const User({
+  User({
+    this.objectboxid = 0,
     this.id = 0,
     this.username = '',
     this.password = '',

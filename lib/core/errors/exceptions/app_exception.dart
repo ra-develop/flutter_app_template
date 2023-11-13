@@ -1,4 +1,3 @@
-import 'package:dartz/dartz.dart';
 
 class AppException implements Exception {
   final String? message;

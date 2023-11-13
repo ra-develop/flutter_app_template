@@ -1,4 +1,4 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../../core/services/auth_service/user_cache_service/domain/providers/user_cache_provider.dart';
 import '../../../../core/services/auth_service/user_cache_service/domain/repositories/user_cache_repository.dart';

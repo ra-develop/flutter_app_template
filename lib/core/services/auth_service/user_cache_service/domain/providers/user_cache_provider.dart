@@ -1,4 +1,4 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../../../domain/providers/shared_prefs_service_provider.dart';
 import '../../../../storage/local/storage_service.dart';

@@ -43,9 +43,6 @@ dependencies:
   firebase_dynamic_links: ^5.0.0
   firebase_storage: ^11.3.0
 
-  #  Hive is a lightweight and buzzing-fast key-value database made for Flutter and Dart.
-#  hive_flutter: ^1.1.0
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
@@ -54,13 +51,13 @@ dependencies:
   #  - catches programming errors at compile time rather than at runtime
   #  - removes nesting for listening/combining objects
   #  - ensures that the code is testab
-  #  flutter_riverpod: ^2.4.3
+  flutter_riverpod: ^2.4.3
 
   #  Flutter Hooks
   #  A Flutter implementation of React hooks: https://medium.com/@dan_abramov/making-sense-of-react-hooks-fdbde8803889
   #  Hooks are a new kind of object that manage the life-cycle of a Widget.
   #  They exist for one reason: increase the code-sharing between widgets by removing duplicates.
-  #  flutter_hooks: ^0.20.2
+  flutter_hooks: ^0.20.2
 
   #  A reactive caching and data-binding framework. https://riverpod.dev
   #  Riverpod makes working with asynchronous code a breeze by:
@@ -100,6 +97,10 @@ dependencies:
   # (FusedLocationProviderClient or if not available the LocationManager on
   #  Android and CLLocationManager on iOS).
   geolocator: ^10.1.0
+  objectbox: ^2.3.1
+  objectbox_flutter_libs: any
+  path_provider: ^2.1.1
+  path: ^1.8.3
 
 dev_dependencies:
   flutter_test:
@@ -117,6 +118,7 @@ dev_dependencies:
   mocktail: ^1.0.1
 
   state_notifier_test: ^0.0.10
+  objectbox_generator: any
 
 
 # For information on the generic Dart part of this file, see the

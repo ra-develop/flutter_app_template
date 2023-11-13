@@ -24,7 +24,7 @@ void main() {
 
   test(
     'When the prefs is not initialized the hasInitialized should be FALSE',
-    () async {
+        () async {
       expect(storageService.hasInitialized, false);
 
       final isInitiated = await storageService.init();
@@ -35,7 +35,7 @@ void main() {
 
   group(
     'SharedPreferencesStorageServiceTests\n',
-    () {
+        () {
       group("Should perform the CRUD operations with SharedPreferences\n", () {
         const testData = "testing data string";
         test('save the data', () async {
@@ -48,9 +48,9 @@ void main() {
           expect(saved, true);
           // check if data exist
           // should return true
-          final hasData3 = await storageService.has('key');
+          final hasData = await storageService.has('key');
 
-          expect(hasData3, true);
+          expect(hasData, true);
         });
 
         test('Check if data exist', () async {
