@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../environment/config/config.dart';
 import '../../features/authentication/presentation/providers/auth_providers.dart';
 import '../../features/authentication/presentation/providers/state/auth_state.dart';
 import '../../features/authentication/presentation/views/login_screen.dart';
@@ -40,7 +41,7 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: '/',
         name: AppRoute.appHome.name,
         builder: (context, state) {
-          return const DemoPage(title: 'Flutter Demo Page');
+          return DemoPage(title: Config.demoPageTitle);
         },
       ),
       GoRoute(

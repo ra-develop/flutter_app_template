@@ -1,3 +1,4 @@
+import 'package:app_template/environment/config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -11,9 +12,9 @@ class LoginScreen extends ConsumerWidget {
   LoginScreen({Key? key}) : super(key: key);
 
   final TextEditingController usernameController =
-      TextEditingController(text: 'kminchelle');
+  TextEditingController(text: 'kminchelle');
   final TextEditingController passwordController =
-      TextEditingController(text: '0lelplR');
+  TextEditingController(text: '0lelplR');
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -32,7 +33,7 @@ class LoginScreen extends ConsumerWidget {
     );
     return Scaffold(
       appBar: AppBar(
-        title: const Text('TDD with Riverpod'),
+        title: Text(Config.loginPageTitle),
       ),
       body: SafeArea(
         child: Column(
@@ -61,9 +62,9 @@ class LoginScreen extends ConsumerWidget {
       onPressed: () {
         // validate email and password
         ref.read(authStateNotifierProvider.notifier).loginUser(
-              usernameController.text,
-              passwordController.text,
-            );
+          usernameController.text,
+          passwordController.text,
+        );
       },
       child: const Text('Login'),
     );

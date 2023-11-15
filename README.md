@@ -6,9 +6,10 @@ The template of a Flutter project.
 
 This project is the initial template for the Flutter application with authentication example, geolocation and upload of open weather information using the REST API
 It is based on clean architecture and uses modular extensible structure to implemting any features.
-This is project has test covers for the network and local data storage services.
+For example implemented Login Page by using DummyJson.com API and Demo Page with geo localisation, openweather API and examples of the custom warning page
+This is project has example test covers for the data model, network and local data storage services (TDD).
 
-Integrated plugins:
+## Integrated plugins:
 1. [Riverpod: A reactive caching and data-binding framework](https://pub.dev/packages/riverpod)
 2. [Firebase envirounment:](https://firebase.google.com/docs/flutter/setup?platform=ios)
 - [firebase_core](https://pub.dev/packages/firebase_core)
@@ -33,6 +34,7 @@ Integrated plugins:
 
 More detailed information for these plugins could be found on the [pub.dev](https://pub.dev)
 
+## Get started Flutter project
 A few resources to get you started if this is your first Flutter project:
 
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
@@ -42,26 +44,28 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-This project support manage and setting a flavor envirounment.
-Command line Android Flavor for run and/or build (Flavor setting can not used for run build in the Android Studio)
+## Flavor envirounment
+This project support managing and setting a flavor envirounment.
+Command line Flutter Flavor for run and/or build
 
 Run:
 ```
-flutter run --flavor production -t lib/main_production.dart
-flutter run --flavor stage -t lib/main_stage.dart
-flutter run --flavor development -t lib/main.dart
+flutter run -t lib/main_production.dart
+flutter run -t lib/main_stage.dart
+flutter run -t lib/main.dart
 ```
 
 Build APK:
 ```
-flutter build apk --flavor production -t lib/main_production.dart
-flutter build apk --flavor stage -t lib/main_stage.dart
-flutter build apk --flavor development -t lib/main.dart
+flutter build apk -t lib/main_production.dart
+flutter build apk -t lib/main_stage.dart
+flutter build apk -t lib/main.dart
 ```
 
 Run Flavor configuration from Android Studio:
 
 ![](FLAVOR_example.png)
+
 ## Warnings
 
 In this project used the

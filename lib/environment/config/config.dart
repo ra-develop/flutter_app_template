@@ -102,6 +102,30 @@ class Config {
     }
   }
 
+  static String get loginPageTitle {
+    switch (appFlavor) {
+      case Flavor.PRODUCTION:
+        return "Login Page (PRODUCTION)";
+      case Flavor.STAGE:
+        return "Login Page (STAGE)";
+      case Flavor.DEVELOPMENT:
+      default:
+        return "Login Page (DEVELOPMENT)";
+    }
+  }
+
+  static String get demoPageTitle {
+    switch (appFlavor) {
+      case Flavor.PRODUCTION:
+        return "Demo Page (PRODUCTION)";
+      case Flavor.STAGE:
+        return "Demo Page (STAGE)";
+      case Flavor.DEVELOPMENT:
+      default:
+        return "Demo Page (DEVELOPMENT)";
+    }
+  }
+
 // For example of flavour configuration
 /*  static Icon get someOneIcon {
     switch (appFlavor) {
