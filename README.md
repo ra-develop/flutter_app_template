@@ -30,7 +30,7 @@ Integrated plugins:
 - path_provider, path
 - freezed, freezed_annotation
 
-More detailed informatio for these plugins could be found on the [pub.dev](https://pub.dev)
+More detailed information for these plugins could be found on the [pub.dev](https://pub.dev)
 
 A few resources to get you started if this is your first Flutter project:
 
@@ -41,6 +41,26 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
+This project support manage and setting a flavor envirounment.
+Command line Android Flavor for run and/or build (Flavor setting can not used for run build in the Android Studio)
+
+Run:
+```
+flutter run --flavor production -t lib/main_production.dart
+flutter run --flavor stage -t lib/main_stage.dart
+flutter run --flavor development -t lib/main.dart
+```
+
+Build APK:
+```
+flutter build apk --flavor production -t lib/main_production.dart
+flutter build apk --flavor stage -t lib/main_stage.dart
+flutter build apk --flavor development -t lib/main.dart
+```
+
+Run Flavor configuration from Android Studio:
+
+![](FLAVOR_example.png)
 ## Warnings
 
 In this project used the
