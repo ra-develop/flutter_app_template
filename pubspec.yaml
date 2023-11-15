@@ -36,12 +36,15 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
+  # Firebase
   cloud_firestore: ^4.10.0
   firebase_auth: ^4.11.0
   firebase_core: ^2.18.0
   firebase_crashlytics: ^3.0.0
   firebase_dynamic_links: ^5.0.0
   firebase_storage: ^11.3.0
+  firebase_messaging: ^14.7.4
+
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -90,17 +93,27 @@ dependencies:
 
   #  Being able to compare objects in Dart often involves having to override the == operator as well as hashCode.
   equatable: ^2.0.5
+
+  # Functional Programming in Dart. Purify your Dart code using efficient immutable data structures, monads, lenses and other FP tools.
   dartz: ^0.10.1
+
   freezed_annotation: ^2.4.1
 
   # A Flutter geolocation plugin which provides easy access to platform specific location services
   # (FusedLocationProviderClient or if not available the LocationManager on
   #  Android and CLLocationManager on iOS).
   geolocator: ^10.1.0
+
+  # NO SQL Database
   objectbox: ^2.3.1
   objectbox_flutter_libs: any
+
   path_provider: ^2.1.1
   path: ^1.8.3
+
+  # A declarative router for Flutter based on Navigation 2 supporting deep linking,
+  # data-driven routes and more.
+  go_router: ^12.1.1
 
 dev_dependencies:
   flutter_test:
@@ -119,6 +132,7 @@ dev_dependencies:
 
   state_notifier_test: ^0.0.10
   objectbox_generator: any
+  freezed: ^2.4.5
 
 
 # For information on the generic Dart part of this file, see the

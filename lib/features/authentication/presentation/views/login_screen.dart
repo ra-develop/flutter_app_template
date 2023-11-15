@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
-import '../../../../core/routes/app_routes.dart';
+import '../../../../core/routes/app_router.dart';
 import '../providers/auth_providers.dart';
 import '../providers/state/auth_state.dart';
 import '../widgets/auth_field.dart';
 
-// @RoutePage()
 class LoginScreen extends ConsumerWidget {
-  static const routeName = '/loginScreen';
-
   LoginScreen({Key? key}) : super(key: key);
 
   final TextEditingController usernameController =
@@ -28,10 +26,7 @@ class LoginScreen extends ConsumerWidget {
           ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text(next.exception.message.toString())));
         } else if (next is Success) {
-          Navigator.pushNamed(context, AppRoutes.appHome);
-
-          // AutoRouter.of(context)
-          //     .pushAndPopUntil(const DashboardRoute(), predicate: (_) => false);
+          context.pushNamed(AppRoute.appHome.name);
         }
       }),
     );

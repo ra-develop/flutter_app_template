@@ -2,32 +2,33 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../core/routes/app_routes.dart';
+import '../core/routes/app_router.dart';
 import 'theme/theme.dart';
 
-final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
-
-class App extends StatefulWidget {
+class App extends ConsumerStatefulWidget {
   const App({Key? key}) : super(key: key);
 
   @override
-  State<App> createState() => _AppState();
+  ConsumerState<App> createState() => _AppState();
 }
 
-class _AppState extends State<App> {
+class _AppState extends ConsumerState<App> {
   // This widget is the root of application.
 
-  @override
-  initState() {
-    super.initState();
-  }
+  // TODO to set app title
+  final title = 'Flutter App Template';
+
+  // @override
+  // initState() {
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
-    // TODO to set app title
-    const title = 'Flutter App Template';
-    return MaterialApp(
+    final router = ref.watch(routerProvider);
+    return MaterialApp.router(
       debugShowCheckedModeBanner: true,
       title: title,
       theme: AppTheme().lightBase,
@@ -66,9 +67,7 @@ class _AppState extends State<App> {
           return const Locale('en', '');
         }
       },
-      navigatorKey: navigatorKey,
-      initialRoute: AppRoutes().getInitialRoute(),
-      onGenerateRoute: (route) => AppRoutes().getRoute(route),
+      routerConfig: router,
     );
   }
 }

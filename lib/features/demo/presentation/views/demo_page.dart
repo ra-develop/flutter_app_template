@@ -4,8 +4,9 @@ import 'package:app_template/features/demo/data/demo_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:go_router/go_router.dart';
 
-import '../../../../core/routes/app_routes.dart';
+import '../../../../core/routes/app_router.dart';
 import '../../../../core/share/widgets/sized_spaces.dart';
 import '../../../../core/share/widgets/waiting_view.dart';
 import '../../data/CurrentWeatherData.dart';
@@ -239,8 +240,7 @@ Test waiting view as warning message
               color: Colors.red,
             ),
           );
-          Navigator.pushNamed(context, AppRoutes.waitingView,
-              arguments: arguments);
+          context.pushNamed(AppRoute.waitingView.name, extra: arguments);
         });
       },
       child: const Text(
@@ -259,8 +259,7 @@ Test waiting view as warning message
             message: "Test waiting view with Duration",
             duration: const Duration(seconds: 5),
           );
-          Navigator.pushNamed(context, AppRoutes.waitingView,
-              arguments: arguments);
+          context.pushNamed(AppRoute.waitingView.name, extra: arguments);
         });
       },
       child: const Text(
@@ -275,8 +274,8 @@ Test waiting view as warning message
       onPressed: () {
         setState(() {
           developer.log("Test waiting view", name: "WaitingView");
-          Navigator.pushNamed(context, AppRoutes.simpleWait,
-              arguments: "Test waiting view");
+          context.pushNamed(AppRoute.simpleWait.name,
+              extra: "Test waiting view");
         });
       },
       child: const Text(
