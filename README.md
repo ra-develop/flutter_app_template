@@ -2,10 +2,11 @@
 
 The template of a Flutter project.
 
-## Getting Started
+## Short descriptoin
 
 This project is the initial template for the Flutter application with authentication example, geolocation and upload of open weather information using the REST API
-It is based on clean architecture and uses modular extensible structure.
+It is based on clean architecture and uses modular extensible structure to implemting any features.
+This is project has test covers for the network and local data storage services.
 
 Integrated plugins:
 1. [Riverpod: A reactive caching and data-binding framework](https://pub.dev/packages/riverpod)
@@ -23,12 +24,12 @@ Integrated plugins:
 6. [NOSQL Database: ObjectBox](https://pub.dev/packages/objectbox)
 7. [A declarative app router: go_router](https://pub.dev/packages/go_router)
 8. And much other:
-- equatable
-- dartz
-- package_info_plus
-- shared_preferences
-- path_provider, path
-- freezed, freezed_annotation
+- equatable;
+- freezed, freezed_annotation;
+- dartz;
+- package_info_plus;
+- shared_preferences;
+- path_provider, path;
 
 More detailed information for these plugins could be found on the [pub.dev](https://pub.dev)
 
