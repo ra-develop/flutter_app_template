@@ -78,3 +78,6 @@ lib/generated_plugin_registrant.dart
 #editor configs
 .vscode
 .idea
+**.g.dart
+**.mdb
+**/objectbox-model.json
