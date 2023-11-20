@@ -24,7 +24,7 @@ class UserLocalDatasource extends UserDataSource {
   final StorageService storageService;
 
   @override
-  String get storageKey => USER_LOCAL_STORAGE_KEY;
+  String get storageKey => Config.USER_LOCAL_STORAGE_KEY;
 
   @override
   Future<Either<AppException, User>> fetchUser() async {

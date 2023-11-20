@@ -13,7 +13,7 @@ class DioNetworkService extends NetworkService with ExceptionHandlerMixin {
 
   DioNetworkService(this.dio) {
     // this throws error while running test
-    if (!kTestMode) {
+    if (!Config.kTestMode) {
       dio.options = dioBaseOptions;
       if (kDebugMode) {
         dio.interceptors
@@ -39,7 +39,7 @@ class DioNetworkService extends NetworkService with ExceptionHandlerMixin {
   @override
   Map<String, dynamic>? updateHeader(Map<String, dynamic> data) {
     final header = {...data, ...headers};
-    if (!kTestMode) {
+    if (!Config.kTestMode) {
       dio.options.headers = header;
     }
     return header;
