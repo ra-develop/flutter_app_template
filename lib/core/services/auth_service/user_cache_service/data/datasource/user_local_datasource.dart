@@ -2,9 +2,9 @@ import 'package:dart_json_mapper/dart_json_mapper.dart';
 import 'package:dartz/dartz.dart';
 
 import '../../../../../../environment/config/config.dart';
-import '../../../../../domain/models/user/user_model.dart';
 import '../../../../../errors/exceptions/app_exception.dart';
 import '../../../../storage/local/storage_service.dart';
+import '../models/user/user_model.dart';
 
 abstract class UserDataSource {
   String get storageKey;

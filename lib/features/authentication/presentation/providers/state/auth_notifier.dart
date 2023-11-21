@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../../../core/domain/models/user/user_model.dart';
 import '../../../../../core/errors/exceptions/cache_failure_excwption.dart';
+import '../../../../../core/services/auth_service/user_cache_service/data/models/user/user_model.dart';
 import '../../../../../core/services/auth_service/user_cache_service/domain/repositories/user_cache_repository.dart';
 import '../../../domain/repositories/auth_repository.dart';
 import 'auth_state.dart';

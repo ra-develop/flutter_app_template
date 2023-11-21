@@ -1,8 +1,8 @@
 import 'package:dart_json_mapper/dart_json_mapper.dart';
 import 'package:dartz/dartz.dart';
 
-import '../../../../core/domain/models/user/user_model.dart';
 import '../../../../core/errors/exceptions/app_exception.dart';
+import '../../../../core/services/auth_service/user_cache_service/data/models/user/user_model.dart';
 import '../../../../core/services/storage/remote/network_service.dart';
 
 abstract class LoginUserDataSource {
