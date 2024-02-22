@@ -1,6 +1,6 @@
 import 'package:app_template/core/errors/exceptions/app_exception.dart';
-import 'package:app_template/core/services/auth_service/user_cache_service/data/models/user/user_model.dart';
 import 'package:app_template/features/authentication/data/datasource/auth_remote_data_source.dart';
+import 'package:app_template/features/authentication/data/models/user/user_model.dart';
 import 'package:app_template/features/authentication/data/repositories/atuhentication_repository_impl.dart';
 import 'package:app_template/features/authentication/domain/repositories/auth_repository.dart';
 import 'package:dartz/dartz.dart';

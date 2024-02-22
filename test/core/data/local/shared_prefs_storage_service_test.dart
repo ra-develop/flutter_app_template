@@ -1,6 +1,6 @@
 import 'package:app_template/core/data/datasources/local/shared_prefs_service.dart';
-import 'package:app_template/core/services/auth_service/user_cache_service/data/models/user/user_model.dart';
 import 'package:app_template/core/services/storage/local/storage_service.dart';
+import 'package:app_template/features/authentication/data/models/user/user_model.dart';
 import 'package:dart_json_mapper/dart_json_mapper.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';

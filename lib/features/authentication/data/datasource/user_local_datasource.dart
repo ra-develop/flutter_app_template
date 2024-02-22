@@ -1,9 +1,9 @@
 import 'package:dart_json_mapper/dart_json_mapper.dart';
 import 'package:dartz/dartz.dart';
 
-import '../../../../../../environment/config/config.dart';
-import '../../../../../errors/exceptions/app_exception.dart';
-import '../../../../storage/local/storage_service.dart';
+import '../../../../core/errors/exceptions/app_exception.dart';
+import '../../../../core/services/storage/local/storage_service.dart';
+import '../../../../environment/config/config.dart';
 import '../models/user/user_model.dart';
 
 abstract class UserDataSource {

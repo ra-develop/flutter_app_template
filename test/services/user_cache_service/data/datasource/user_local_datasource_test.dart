@@ -1,5 +1,5 @@
-import 'package:app_template/core/services/auth_service/user_cache_service/data/datasource/user_local_datasource.dart';
 import 'package:app_template/core/services/storage/local/storage_service.dart';
+import 'package:app_template/features/authentication/data/datasource/user_local_datasource.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 

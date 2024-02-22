@@ -6,10 +6,10 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../core/domain/providers/object_box_service_provider.dart';
 import '../core/services/observers.dart';
-import '../core/services/storage/remote/certificate_verify_resolve.dart';
 import '../main.mapper.g.dart';
 import 'app.dart';
 import 'config/config.dart';
+import 'network/certificate_verify_resolve.dart';
 
 Future<void> mainCommon({required Flavor flavorConfiguration}) async {
   // Equatable can implement toString method including all the given props.

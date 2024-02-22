@@ -3,9 +3,9 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../../../environment/config/config.dart';
-import '../../../../environment/network/exception_handler_mixin.dart';
 import '../../../errors/exceptions/app_exception.dart';
 import '../../../services/response.dart' as response;
+import '../../../services/storage/remote/exception_handler_mixin.dart';
 import '../../../services/storage/remote/network_service.dart';
 
 class DioNetworkService extends NetworkService with ExceptionHandlerMixin {

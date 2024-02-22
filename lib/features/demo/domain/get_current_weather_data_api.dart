@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 
 import '../data/CurrentWeatherData.dart';
 import '../data/demo_config.dart';
-import '../services/network/old_version/dio_helpers.dart';
+import '../services/network/dio_helpers.dart';
 import 'get_current_weather_data.dart';
 
 Future<CurrentWeatherData> getCurrentWeatherDataApi(

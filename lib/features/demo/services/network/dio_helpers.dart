@@ -1,13 +1,16 @@
 import 'dart:developer' as developer;
 
+//
 import 'package:app_template/features/demo/data/demo_config.dart';
 import 'package:dio/dio.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-final dioProvider = Provider<Dio>((ref) {
-  final dio = Dio(dioBaseOptions());
-  return dio;
-});
+// import 'package:hooks_riverpod/hooks_riverpod.dart';
+//
+// final dioProvider = Provider<Dio>((ref) {
+//   final dio = Dio(dioBaseOptions());
+//   return dio;
+// });
+//
 
 BaseOptions dioBaseOptions() {
   return BaseOptions(
