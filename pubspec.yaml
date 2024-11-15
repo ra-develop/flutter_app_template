@@ -37,13 +37,13 @@ dependencies:
     sdk: flutter
 
   # Firebase
-  cloud_firestore: ^4.10.0
-  firebase_auth: ^4.11.0
-  firebase_core: ^2.18.0
-  firebase_crashlytics: ^3.0.0
-  firebase_dynamic_links: ^5.0.0
-  firebase_storage: ^11.3.0
-  firebase_messaging: ^14.7.4
+  cloud_firestore: ^5.5.0
+  firebase_auth: ^5.3.3
+  firebase_core: ^3.8.0
+  firebase_crashlytics: ^4.1.5
+#  firebase_dynamic_links: ^5.0.0
+  firebase_storage: ^12.3.6
+  firebase_messaging: ^15.1.5
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -72,7 +72,7 @@ dependencies:
 
   # This Flutter plugin provides an API for querying information about an application package.
   # https://pub.dev/packages/package_info_plus
-  package_info_plus: ^4.1.0
+  package_info_plus: ^8.1.1
 
   # Wraps platform-specific persistent storage for simple data (NSUserDefaults on iOS and macOS,
   #  SharedPreferences on Android, etc.). Data may be persisted to disk asynchronously,
@@ -102,10 +102,10 @@ dependencies:
   # A Flutter geolocation plugin which provides easy access to platform specific location services
   # (FusedLocationProviderClient or if not available the LocationManager on
   #  Android and CLLocationManager on iOS).
-  geolocator: ^10.1.0
+  geolocator: ^13.0.2
 
   # NO SQL Database
-  objectbox: ^2.3.1
+  objectbox: ^4.0.3
   objectbox_flutter_libs: any
 
   path_provider: ^2.1.1
@@ -113,7 +113,7 @@ dependencies:
 
   # A declarative router for Flutter based on Navigation 2 supporting deep linking,
   # data-driven routes and more.
-  go_router: ^12.1.1
+  go_router: ^14.6.0
 
 dev_dependencies:
   flutter_test:
@@ -124,7 +124,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.0
+  flutter_lints: ^5.0.0
 
   build_runner: ^2.4.6
 
