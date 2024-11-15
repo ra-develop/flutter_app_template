@@ -81,3 +81,9 @@ lib/generated_plugin_registrant.dart
 **.g.dart
 **.mdb
 **/objectbox-model.json
+
+#Log files
+**.log
+
+#Mapbox binaries
+/download/
