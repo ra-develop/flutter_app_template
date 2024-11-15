@@ -17,7 +17,7 @@ class User extends Equatable {
   String email;
   String gender;
   String image;
-  String token;
+  String accessToken;
 
   User({
     this.objectboxid = 0,
@@ -29,7 +29,7 @@ class User extends Equatable {
     this.lastName = '',
     this.gender = '',
     this.image = '',
-    this.token = '',
+    this.accessToken = '',
   });
 
   @override
@@ -47,7 +47,7 @@ class User extends Equatable {
         lastName,
         gender,
         image,
-        token,
+    accessToken,
       ];
 
   User copyWith({
@@ -59,7 +59,7 @@ class User extends Equatable {
     String? lastName,
     String? gender,
     String? image,
-    String? token,
+    String? accessToken,
   }) {
     return User(
       id: id ?? this.id,
@@ -70,7 +70,7 @@ class User extends Equatable {
       lastName: lastName ?? this.lastName,
       gender: gender ?? this.gender,
       image: image ?? this.image,
-      token: token ?? this.token,
+      accessToken: accessToken ?? this.accessToken,
     );
   }
 }

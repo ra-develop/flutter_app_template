@@ -17,7 +17,7 @@ This is project has example test covers for the data model, network and local da
 - [cloud_firestore](https://pub.dev/packages/cloud_firestore)
 - [firebase_auth](https://pub.dev/packages/firebase_auth)
 - [firebase_crashlytics](https://pub.dev/packages/firebase_crashlytics)
-- [firebase_dynamic_links](https://pub.dev/packages/firebase_dynamic_links)
+- [firebase_dynamic_links](https://pub.dev/packages/firebase_dynamic_links) deprecated
 - [firebase_messaging](https://pub.dev/packages/firebase_messaging)
 3. [HTTP networking package: dio](https://pub.dev/packages/dio)
 4. [Annotate Dart objects in order to Serialize/Deserialize them to/from JSON: dart_json_mapper](https://pub.dev/packages/dart_json_mapper)

@@ -30,7 +30,7 @@ class LoginUserRemoteDataSource implements LoginUserDataSource {
           if (user != null) {
             // update the token for requests
             networkService.updateHeader(
-              {'Authorization': user.token},
+              {'Authorization': user.accessToken},
             );
             return Right(user);
           } else {

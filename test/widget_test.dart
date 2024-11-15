@@ -20,7 +20,7 @@ void main() {
     await tester.pumpWidget(
       const ProviderScope(
           child: MaterialApp(home: DemoPage(title: "Test Demo Page"))),
-      const Duration(seconds: 15),
+      duration: const Duration(seconds: 15),
     );
 
     // Verify that our counter starts at 0.

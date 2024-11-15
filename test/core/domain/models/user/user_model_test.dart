@@ -27,11 +27,11 @@ void main() {
       test('Should update value by copyWith', () {
         const String updatedToken = 'updated';
 
-        User user = ktestUser.copyWith(token: updatedToken);
-        expect(user.token, updatedToken);
+        User user = ktestUser.copyWith(accessToken: updatedToken);
+        expect(user.accessToken, updatedToken);
 
-        user = user.copyWith(token: null);
-        expect(user.token, updatedToken);
+        user = user.copyWith(accessToken: null);
+        expect(user.accessToken, updatedToken);
       });
     },
   );
