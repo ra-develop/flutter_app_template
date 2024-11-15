@@ -3,9 +3,9 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../../../environment/config/config.dart';
-import '../../../../environment/network/exception_handler_mixin.dart';
 import '../../../errors/exceptions/app_exception.dart';
 import '../../../services/response.dart' as response;
+import '../../../services/storage/remote/exception_handler_mixin.dart';
 import '../../../services/storage/remote/network_service.dart';
 
 class DioNetworkService extends NetworkService with ExceptionHandlerMixin {
@@ -13,7 +13,7 @@ class DioNetworkService extends NetworkService with ExceptionHandlerMixin {
 
   DioNetworkService(this.dio) {
     // this throws error while running test
-    if (!kTestMode) {
+    if (!Config.kTestMode) {
       dio.options = dioBaseOptions;
       if (kDebugMode) {
         dio.interceptors
@@ -39,7 +39,7 @@ class DioNetworkService extends NetworkService with ExceptionHandlerMixin {
   @override
   Map<String, dynamic>? updateHeader(Map<String, dynamic> data) {
     final header = {...data, ...headers};
-    if (!kTestMode) {
+    if (!Config.kTestMode) {
       dio.options.headers = header;
     }
     return header;

@@ -1,10 +1,10 @@
 import 'package:dart_json_mapper/dart_json_mapper.dart';
 import 'package:dartz/dartz.dart';
 
-import '../../../../../../environment/config/config.dart';
-import '../../../../../domain/models/user/user_model.dart';
-import '../../../../../errors/exceptions/app_exception.dart';
-import '../../../../storage/local/storage_service.dart';
+import '../../../../core/errors/exceptions/app_exception.dart';
+import '../../../../core/services/storage/local/storage_service.dart';
+import '../../../../environment/config/config.dart';
+import '../models/user/user_model.dart';
 
 abstract class UserDataSource {
   String get storageKey;
@@ -24,7 +24,7 @@ class UserLocalDatasource extends UserDataSource {
   final StorageService storageService;
 
   @override
-  String get storageKey => USER_LOCAL_STORAGE_KEY;
+  String get storageKey => Config.USER_LOCAL_STORAGE_KEY;
 
   @override
   Future<Either<AppException, User>> fetchUser() async {

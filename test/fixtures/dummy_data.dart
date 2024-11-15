@@ -1,6 +1,6 @@
-import 'package:app_template/core/domain/models/user/user_model.dart';
 import 'package:app_template/core/errors/exceptions/app_exception.dart';
 import 'package:app_template/core/services/response.dart';
+import 'package:app_template/features/authentication/data/models/user/user_model.dart';
 
 import 'data/user_map.dart';
 

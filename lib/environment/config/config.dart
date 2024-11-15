@@ -11,10 +11,6 @@ import '../firebase/firebase_options.dart';
 
 enum Flavor { DEVELOPMENT, STAGE, PRODUCTION }
 
-final kTestMode = Platform.environment.containsKey('FLUTTER_TEST');
-
-const String USER_LOCAL_STORAGE_KEY = 'user';
-
 class Config {
   late Future _doneFuture;
   static String defaultIcon = "assets/icons/winker_logo_fill.png";
@@ -25,6 +21,8 @@ class Config {
   static late bool firstStart;
   static late PackageInfo packageInfo;
   static late bool debug;
+  static String USER_LOCAL_STORAGE_KEY = 'user';
+  static bool kTestMode = Platform.environment.containsKey('FLUTTER_TEST');
 
   Config(Flavor flavor) {
     _doneFuture = _init(flavor);

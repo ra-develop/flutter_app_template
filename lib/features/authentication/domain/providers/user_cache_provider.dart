@@ -1,9 +1,9 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../../../domain/providers/shared_prefs_service_provider.dart';
-import '../../../../storage/local/storage_service.dart';
-import '../../data/datasource/user_local_datasource.dart';
-import '../../data/repositories/user_repository_impl.dart';
+import '../../../../../../features/authentication/data/datasource/user_local_datasource.dart';
+import '../../../../../../features/authentication/data/repositories/user_repository_impl.dart';
+import '../../../../core/domain/providers/shared_prefs_service_provider.dart';
+import '../../../../core/services/storage/local/storage_service.dart';
 import '../repositories/user_cache_repository.dart';
 
 final userDatasourceProvider = Provider.family<UserDataSource, StorageService>(

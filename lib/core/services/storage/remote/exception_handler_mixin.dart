@@ -5,9 +5,9 @@ import 'dart:io';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
-import '../../core/errors/exceptions/app_exception.dart';
-import '../../core/services/response.dart' as response;
-import '../../core/services/storage/remote/network_service.dart';
+import '../../../errors/exceptions/app_exception.dart';
+import '../../response.dart' as response;
+import 'network_service.dart';
 
 mixin ExceptionHandlerMixin on NetworkService {
   Future<Either<AppException, response.Response>>

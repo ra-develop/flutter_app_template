@@ -1,8 +1,8 @@
-import 'package:app_template/core/domain/models/user/user_model.dart';
 import 'package:app_template/core/errors/exceptions/app_exception.dart';
 import 'package:app_template/core/errors/exceptions/cache_failure_excwption.dart';
-import 'package:app_template/core/services/auth_service/user_cache_service/domain/repositories/user_cache_repository.dart';
+import 'package:app_template/features/authentication/data/models/user/user_model.dart';
 import 'package:app_template/features/authentication/domain/repositories/auth_repository.dart';
+import 'package:app_template/features/authentication/domain/repositories/user_cache_repository.dart';
 import 'package:app_template/features/authentication/presentation/providers/state/auth_notifier.dart';
 import 'package:app_template/features/authentication/presentation/providers/state/auth_state.dart';
 import 'package:dartz/dartz.dart';

@@ -1,6 +1,6 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../../../domain/models/user/user_model.dart';
+import '../../data/models/user/user_model.dart';
 import 'user_cache_provider.dart';
 
 final currentUserProvider = FutureProvider<User?>((ref) async {
